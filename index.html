@@ -12,15 +12,19 @@
 
   <script>
     async function analyze() {
-      const res = await fetch("https://YOUR-BACKEND-URL/analyze", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          usd: "strong",
-          inflation: "high",
-          sentiment: "risk-off"
-        })
-      });
+  document.getElementById("result").innerText = "Analyzing...";
+
+  const res = await fetch("YOUR_REPLIT_URL/analyze", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      usd: "strong"
+    })
+  });
+
+  const data = await res.json();
+  document.getElementById("result").innerText = data.result;
+}
 
       const data = await res.json();
       document.getElementById("result").innerText = data.result;
