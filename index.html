@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Market Bias Engine</title>
+</head>
+<body>
+  <h1>Market Bias Dashboard</h1>
+
+  <button onclick="analyze()">Analyze Market</button>
+
+  <h2 id="result">Waiting...</h2>
+
+  <script>
+    async function analyze() {
+      const res = await fetch("https://YOUR-BACKEND-URL/analyze", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          usd: "strong",
+          inflation: "high",
+          sentiment: "risk-off"
+        })
+      });
+
+      const data = await res.json();
+      document.getElementById("result").innerText = data.result;
+    }
+  </script>
+</body>
+</html>
