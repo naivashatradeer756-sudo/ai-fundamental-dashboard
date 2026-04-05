@@ -14,7 +14,7 @@
     async function analyze() {
   document.getElementById("result").innerText = "Analyzing...";
 
-  const res = await fetch("YOUR_REPLIT_URL/analyze", {
+  const res = await fetch("https://node-explorer--naivashatradeer.replit.app/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
